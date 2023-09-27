@@ -40,11 +40,10 @@ if(checkRequestMethod('POST') && checkPostInput('email')) {
         $errors['username']="username must be less than 20 chars";
     }
     else {
-        foreach($allData as $index) {
-            foreach($index as $key=>$value){
-            if ($key == 'username'&& $_POST['username']==$value){
+        foreach($allData as $key=>$value) {
+            if ($value['username'] == $_POST['username'] && $key != $_SESSION['id']){
                 $errors['username']="username is already exsits";
-            }
+            
         }
         }
     }
@@ -55,11 +54,10 @@ if(checkRequestMethod('POST') && checkPostInput('email')) {
         $errors['email']="Enter valid email";
     }
     else {
-        foreach($allData as $index) {
-            foreach($index as $key=>$value){
-            if ($key == 'email'&& $_POST['email']==$value){
+        foreach($allData as $key=>$value) {
+            if ($value['email'] == $_POST['email'] && $key != $_SESSION['id']){
                 $errors['email']="email is already exsits";
-            }
+            
         }
         }
     }
