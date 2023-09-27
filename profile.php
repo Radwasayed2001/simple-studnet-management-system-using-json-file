@@ -29,6 +29,7 @@ $x = 0;
   
 <?php
     $allData = json_decode(file_get_contents('./data.json'),true);
+    if (!empty($allData)):
     foreach($allData as $key=>$value):
 //     foreach($index as $key=>$value){
 //     if ($key == 'username'&& $_POST['username']==$value){
@@ -48,7 +49,7 @@ $x = 0;
         </td>
     </tr>
   </tbody>
-  <?php endforeach; ?>
+  <?php endforeach;endif; ?>
 </table>
 </div>
 <?php
