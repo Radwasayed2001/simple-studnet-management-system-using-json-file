@@ -6,7 +6,7 @@ include('./core/functions.php');
 $x = 0;
 ?>
 
-<div class="container mt-5 bg-white p-5">
+<div class="container mt-5 bg-white p-lg-5 p-md-4">
 <?php if (isset($_SESSION['success'])):?>
 <div class="alert alert-success">
   <?php
@@ -17,6 +17,7 @@ $x = 0;
   ?>
 </div>
 <?php endif;?>
+<div class="table-responsive">
 <table class="table">
   <thead>
     <tr>
@@ -51,6 +52,7 @@ $x = 0;
   </tbody>
   <?php endforeach;endif; ?>
 </table>
-</div>
+</div> 
+</div> 
 <?php
 include('./inc/footer.php');
