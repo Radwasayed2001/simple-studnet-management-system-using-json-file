@@ -8,68 +8,68 @@ if(checkRequestMethod('POST') && checkPostInput('email')) {
     foreach($_POST as $key=>$value) {
         $$key = sanitizeInput($value);
     }
-    if (requiredVal($_POST['fname']))
+    if (requiredVal($fname))
     {
         $errors['fname']="first name is requiered";
     }
-    else if (minVal($_POST['fname'],3)) {
+    else if (minVal($fname,3)) {
         $errors['fname']="first name must be greater than 2 chars";
     }
-    else if (maxVal($_POST['fname'],20)) {
+    else if (maxVal($fname,20)) {
         $errors['fname']="first name must be less than 20 chars";
     }
-    if (requiredVal($_POST['lname']))
+    if (requiredVal($lname))
     {
         $errors['lname']="last name is requiered";
     }
-    else if (minVal($_POST['lname'],3)) {
+    else if (minVal($lname,3)) {
         $errors['lname']="last name must be greater than 2 chars";
     }
-    else if (maxVal($_POST['lname'],20)) {
+    else if (maxVal($lname,20)) {
         $errors['lname']="last name must be less than 20 chars";
     }
-    if (requiredVal($_POST['username']))
+    if (requiredVal($username))
     {
         $errors['username']="username is requiered";
     }
-    else if (minVal($_POST['username'],3)) {
+    else if (minVal($username,3)) {
         $errors['username']="username must be greater than 2 chars";
     }
-    else if (maxVal($_POST['username'],20)) {
+    else if (maxVal($username,20)) {
         $errors['username']="username must be less than 20 chars";
     }
     else {
         foreach($allData as $index) {
             foreach($index as $key=>$value){
-            if ($key == 'username'&& $_POST['username']==$value){
+            if ($key == 'username'&& $username==$value){
                 $errors['username']="username is already exsits";
             }
         }
         }
     }
-    if (requiredVal($_POST['email'])){
+    if (requiredVal($email)){
         $errors['email']="email is requiered";
     }
-    else if (!emailVal($_POST['email'])){
+    else if (!emailVal($email)){
         $errors['email']="Enter valid email";
     }
     else {
         foreach($allData as $index) {
             foreach($index as $key=>$value){
-            if ($key == 'email'&& $_POST['email']==$value){
+            if ($key == 'email'&& $email==$value){
                 $errors['email']="email is already exsits";
             }
         }
         }
     }
-    if (requiredVal($_POST['password']))
+    if (requiredVal($password))
     {
         $errors['password']="password is requiered";
     }
-    else if (minVal($_POST['password'],6)) {
+    else if (minVal($password,6)) {
         $errors['password']="password must be greater than 6 chars";
     }
-    else if (maxVal($_POST['password'],25)) {
+    else if (maxVal($password,25)) {
         $errors['password']="password must be less than 25 chars";
     }
     if (!empty($errors)) {
